@@ -1,33 +1,38 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
-  homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-plugin"
-  version "2.0.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-plugin/releases/download/2.0.0/docker-control-aarch64-apple-darwin.tar.xz"
-      sha256 "39c81d74102b7e73d1f7f39af99adb9dcca60ebd97e92438dd087d0973c1802b"
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-plugin/releases/download/2.0.0/docker-control-x86_64-apple-darwin.tar.xz"
-      sha256 "9f7137cd4813f73251217bce2c44afd4ce5118edd872257feccad3d6e985bf2b"
-    end
+  homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
+  version "2.0.1"
+  if OS.mac? && Hardware::CPU.arm?
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.1/docker-control-aarch64-apple-darwin.tar.xz"
+      sha256 "94aa8c358c0213bc540aa14669ab579a6d6039625fb43957bc0e9fd8a5b5b4d5"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-plugin/releases/download/2.0.0/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "372fa1ed85a4ebd659e6710fdba0919e28c5f6d5418b63d42f126163808032cd"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.1/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "aad806226854d29f3b36a42db618edaa96391cfb7561de6e8e2ef454f76ec83d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-plugin/releases/download/2.0.0/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "b89c1c8e02630cd446e6ae6c88748517c4dbdf2252c837a23b65f32b702af498"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.1/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "848ebe4282dc9d0e3a887b9aa5cde7d2183465795f0658ae42ebe01d2f33fa37"
     end
   end
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":      {},
-    "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
-    "x86_64-unknown-linux-gnu":  {},
+    "aarch64-apple-darwin":      {
+      "docker-control": [
+        "dc2",
+      ],
+    },
+    "aarch64-unknown-linux-gnu": {
+      "docker-control": [
+        "dc2",
+      ],
+    },
+    "x86_64-unknown-linux-gnu":  {
+      "docker-control": [
+        "dc2",
+      ],
+    },
   }.freeze
 
   def target_triple
@@ -47,7 +52,6 @@ class DockerControl < Formula
 
   def install
     bin.install "docker-control" if OS.mac? && Hardware::CPU.arm?
-    bin.install "docker-control" if OS.mac? && Hardware::CPU.intel?
     bin.install "docker-control" if OS.linux? && Hardware::CPU.arm?
     bin.install "docker-control" if OS.linux? && Hardware::CPU.intel?
 
