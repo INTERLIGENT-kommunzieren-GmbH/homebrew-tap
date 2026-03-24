@@ -1,19 +1,19 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
   homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
-  version "2.0.13"
+  version "2.0.14"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.13/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "476bfc55adf2d3d75b674fcdbd3bbd021d394f9e795bb2622375f495e8d2cda7"
+    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.14/docker-control-aarch64-apple-darwin.tar.xz"
+    sha256 "2ef49805a0aa61014ca740a16ae433d67cf7b654c09f06f64cd44628cb967c31"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.13/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "9817d26db41fa1e93c3a17bcb8894986eb601357ca24ce922caa6c6bfc01b6f7"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.14/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "735d9c02f961b0baa36a42f494688749879854a402537118e83e1145bcf5f78d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.13/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "ead01bddd95eabe539e4496cd6492f025cbceac47aefc13102785e79c9c07c19"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.14/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "5bd45878b2a0bd75f7a33f3b98f296ffed9ea4e5fd38dfcc92e5d4af1721c67c"
     end
   end
 
@@ -67,7 +67,7 @@ class DockerControl < Formula
   end
 
   def post_install
-    ingress_volumes_dir = HOMEBREW_PREFIX/"etc/docker-control/ingress/volumes"
+    ingress_volumes_dir = etc/"docker-control/ingress/volumes"
     ingress_volumes_dir.mkpath
 
     # Copy ingress volume assets from share to the stable config directory
