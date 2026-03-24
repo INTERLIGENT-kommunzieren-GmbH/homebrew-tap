@@ -1,19 +1,19 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
   homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
-  version "2.0.10"
+  version "2.0.11"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.10/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "20ab1ccb44fb4a0e2b458f1969bd7d5e6ad3b21bee1da6094176bfc0fd2d5567"
+    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-aarch64-apple-darwin.tar.xz"
+    sha256 "4b87daafe69eeeb38844c3f73b053815a0fd1446f168e1bb880dae0696912729"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.10/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "9140cb3a91edc2057eba06dab5be531eca838566d511787d857a23655cad1972"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "73df7b4595dca7cdceaaeef4ab6caeb150440a65cff68e4a284da8cfb729d137"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.10/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "f6fdb28060166560412eff501686895da320ed85da1a6be480c3dbb9bd03a9a0"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "1ac0345f3fd402ea904646d9140d0839eb1befd958190ebb0dd68b115d94ee14"
     end
   end
 
@@ -74,8 +74,8 @@ class DockerControl < Formula
     # Overwrites existing files to ensure updates are propagated
     share_ingress_volumes = prefix/"share/docker-control/ingress/volumes"
     if share_ingress_volumes.exist?
-      # Using FileUtils.cp_r with source/. will copy contents and overwrite
-      FileUtils.cp_r(share_ingress_volumes/".", ingress_volumes_dir, verbose: true, remove_destination: false)
+      # Using cp_r with source/. will copy contents and overwrite
+      cp_r(share_ingress_volumes/".", ingress_volumes_dir, verbose: true, remove_destination: false)
     end
   end
 end
