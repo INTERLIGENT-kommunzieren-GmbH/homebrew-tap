@@ -1,19 +1,19 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
   homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
-  version "2.0.11"
+  version "2.0.12"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "4b87daafe69eeeb38844c3f73b053815a0fd1446f168e1bb880dae0696912729"
+    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.12/docker-control-aarch64-apple-darwin.tar.xz"
+    sha256 "a0391808e15f22a0af1e210709d6093d647d1eb86834417616039f9a984c4261"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "73df7b4595dca7cdceaaeef4ab6caeb150440a65cff68e4a284da8cfb729d137"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.12/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "f3b690cee9d4697ba12839cf39ea4e36180468d960da02cd81e4ef8effed4301"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.11/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "1ac0345f3fd402ea904646d9140d0839eb1befd958190ebb0dd68b115d94ee14"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.0.12/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "7c6990c4c9d0792fe384f9b5b9a37d574f771500fff7cccb5056473382faebc7"
     end
   end
 
@@ -67,7 +67,7 @@ class DockerControl < Formula
   end
 
   def post_install
-    ingress_volumes_dir = Pathname.new("#{Dir.home}/.config/docker-control/ingress/volumes")
+    ingress_volumes_dir = Pathname.new(Dir.home).join(".config/docker-control/ingress/volumes")
     ingress_volumes_dir.mkpath
 
     # Copy ingress volume assets from share to the stable config directory
