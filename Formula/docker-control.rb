@@ -1,19 +1,19 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
   homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
-  version "2.3.9"
+  version "2.3.10"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.9/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "0c7ae61a5fe81c686f172c6d37f4dcba070831e4bf20d7578de1744bb94db8fe"
+    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.10/docker-control-aarch64-apple-darwin.tar.xz"
+    sha256 "d89b561636bba4c1f3ec5f140e206e19ebdfc3dc18e71822351a073fede3c832"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.9/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "ceda44913762e9643d24e9a05eb7340d4706ad9aad7ae3ccbb91cd2257b788d0"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.10/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "fca3ad450af2cd8ffb0627ed1b04c0b28be2502b27b8613d5df17cc9db1f803c"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.9/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "3e43d870113bc3ac6c60e3adcaaaed710676fd8f1260dbed69bc8b0e13c97170"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.3.10/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "935e9f49917fdce34d201bdf6c2d3234dd2d3c86b22ba751b03c0d7b5ecab00e"
     end
   end
 
