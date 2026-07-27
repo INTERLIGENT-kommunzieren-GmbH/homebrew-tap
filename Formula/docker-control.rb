@@ -4,16 +4,16 @@ class DockerControl < Formula
   version "2.4.13"
   if OS.mac? && Hardware::CPU.arm?
     url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.4.13/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "fad298f64f44502a0a1a1856e942ce8875dc6d4a92757a3b19c230ba38d9efff"
+    sha256 "ab048d5e55670722d894ce8a59f821573ad877e365ed65b43d2c177d5a1caadf"
   end
   if OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.4.13/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "c9f04430e1ee4e1ed35c6e20879c3591fab4155370defbc7e291649729eca9d9"
+      sha256 "9f100aa91cb2b88fe91a224e96f9b92deeb2c976cd2cbdccc4fb916ba9c1c6be"
     end
     if Hardware::CPU.intel?
       url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.4.13/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "0ea717f3de931e29bcee983b1e7b33f6cd2e1e1e2fd34eabba930f587a3915a8"
+      sha256 "a561466381555ecec6261ed2c7b0130977f4d82bc9bb86353d0125525fcab54b"
     end
   end
 
