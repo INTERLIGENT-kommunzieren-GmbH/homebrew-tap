@@ -1,19 +1,19 @@
 class DockerControl < Formula
   desc "a CLI tool to control ik docker stack"
   homepage "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control"
-  version "2.5.0"
+  version "2.6.0"
   if OS.mac? && Hardware::CPU.arm?
-    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.5.0/docker-control-aarch64-apple-darwin.tar.xz"
-    sha256 "a943a719683808be5a6a80e9ce4414ce226adc1cf9e82dc27a79747a8814deb6"
+    url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.6.0/docker-control-aarch64-apple-darwin.tar.xz"
+    sha256 "c980321ec58a6bcd0d4ab15ab0b8469ed415099f7dfa671fe464537c34e2df0f"
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.5.0/docker-control-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "45ed32cb0d7e56f95d02a3c5285d8ed3630ecba3c6b580d4ea3eda122d8c5999"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.6.0/docker-control-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "5c80e1ca762cbd0b986af25fe00364dfa8e1f98c742b0f96e034987e5ba4ab7a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.5.0/docker-control-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "bd64fe62c3707122c7bce0df57f485c024d24b926ab73f01e5f02130760a2b1f"
+      url "https://github.com/INTERLIGENT-kommunzieren-GmbH/docker-control/releases/download/2.6.0/docker-control-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "ed88fe60e36577d3acc6df0b88307c005358a9c89678c71be161fa1cb7dd199f"
     end
   end
 
@@ -51,9 +51,15 @@ class DockerControl < Formula
   end
 
   def install
-    bin.install "docker-control" if OS.mac? && Hardware::CPU.arm?
-    bin.install "docker-control" if OS.linux? && Hardware::CPU.arm?
-    bin.install "docker-control" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "docker-control"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "docker-control"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "docker-control"
+    end
 
     install_binary_aliases!
 
